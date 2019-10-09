@@ -6,16 +6,15 @@
   "browser": "dist/mvvm-vue.umd.js",
   "dependencies": {},
   "devDependencies": {
-    "@types/ms": "^0.7.30",
     "rollup": "^1.0.0",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-typescript": "^1.0.0",
-    "ts-node": "^7.0.1",
-    "tslib": "^1.9.3",
+    "ts-node": "7.0.1",
+    "tslib": "1.10.0",
     "tslint": "^5.20.0",
     "tslint-config-standard": "^8.0.1",
-    "typescript": "^3.2.2"
+    "typescript": "3.6.3"
   },
   "scripts": {
     "build": "rollup -c",
