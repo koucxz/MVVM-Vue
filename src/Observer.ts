@@ -68,3 +68,5 @@ class Dep {
     })
   }
 }
+
+export { Observer, Dep }

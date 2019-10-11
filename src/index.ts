@@ -1,3 +1,3 @@
-export default class Vue {
+export default class Vue implements VueInterface {
   constructor () {}
 }
