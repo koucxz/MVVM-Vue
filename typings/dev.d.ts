@@ -6,7 +6,8 @@ declare interface ComponentDataFn {
   (): ComponentData
 }
 
-declare interface VueInterface {
+declare interface Component {
+  $options: Object,
   el: string,
   data: ComponentData | ComponentDataFn,
   watch?: {

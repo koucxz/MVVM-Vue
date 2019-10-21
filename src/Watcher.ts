@@ -1,13 +1,13 @@
 import { Dep } from './Observer'
 
 class Watcher {
-  vm: VueInterface
+  vm: Component
   expOrFn: string | Function
   cb: Function
   public deps: Map<number, Dep>
   getter: Function
   value: any
-  constructor (vm: VueInterface, expOrFn: string | Function, cb: Function) {
+  constructor (vm: Component, expOrFn: string | Function, cb: Function) {
     this.vm = vm
     this.expOrFn = expOrFn
     this.cb = cb

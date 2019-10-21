@@ -33,7 +33,7 @@ class Observer {
   }
 }
 
-function observe (value: any): Observer | void {
+function observe (value: any, vm?: Component): Observer | void {
   if (!value || typeof value !== 'object') {
     return
   }
@@ -69,4 +69,4 @@ class Dep {
   }
 }
 
-export { Observer, Dep }
+export { observe, Observer, Dep }

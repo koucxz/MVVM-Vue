@@ -1,20 +1,62 @@
-<div id="mvvm-app">
-  <input type="text" v-model="word">
-  <p>{{word}}</p>
-  <button v-on:click="sayHi">change model</button>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<script src="./dist/mvvm-vue.umd.js"></script>
-<script>
-var vm = new MVVM({
-  el: '#mvvm-app',
-    data: {
-      word: 'Hello World!'
-    },
-    methods: {
-      sayHi: function() {
-        this.word = 'Hi, everybody!';
-      }
+<head>
+  <meta charset="UTF-8">
+  <title>MVVM Demo</title>
+  <style>
+    .directived-class {
+      color: blue
     }
-  });
-</script>
+  </style>
+</head>
+
+<body>
+
+  <div id="mvvm-app">
+    <input type="text" v-model="someStr">
+    <input type="text" v-model="child.someStr">
+    <p v-class="className" class="txt">
+        <span>v-bind, v-text: </span>{{someStr}}
+        <span v-text="child.someStr"></span>
+    </p>
+    <p><span>computed: </span>{{ getHelloWord }}</p>
+    <p v-html="htmlStr"></p>
+    <button v-on:click="clickBtn">change model</button>
+  </div>
+
+  <script src="./dist/mvvm-vue.umd.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#mvvm-app',
+      data: {
+        someStr: 'hello ',
+        className: 'directived-class',
+        htmlStr: 'v-html: <span style="color: #f00;">red</span>',
+        child: {
+          someStr: 'World !'
+        }
+      },
+
+      computed: {
+        getHelloWord: function () {
+          return this.someStr + this.child.someStr;
+        }
+      },
+
+      methods: {
+        clickBtn: function (e) {
+          var randomStrArr = ['childOne', 'childTwo', 'childThree'];
+          this.child.someStr = randomStrArr[parseInt(Math.random() * 3)];
+        }
+      }
+    });
+
+    vm.$watch('child.someStr', function (val, oldVal) {
+      console.log('child.someStr changed from ' + oldVal + ' to new val ' + val);
+    });
+  </script>
+
+</body>
+
+</html>
